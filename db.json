@@ -1,0 +1,40 @@
+{
+  "_id": "5fd0f98751e33831d8ef48bb",
+  "groups": [
+    {
+      "_id": "5fd0f98751e33831d8ef4899",
+      "numberOfFollowers": "154,325,212 people like this",
+      "name": "cnn",
+      "about": "media group",
+      "posts": [
+        {
+          "_id": "5fd0f98751e33831d8ef4899",
+          "postId": "https://m.facebook.com/story.php?story_fbid=1251...",
+          "postContent": "BGIS campuses getting disinfected for reopening",
+          "numberOfLikes": "16",
+          "numberOfShares": "2 shares",
+          "timeOfPost": " October 25 at 4:48 PM · Addis Ababa ·",
+          "comments": []
+        },
+        {
+          "_id": "5fd0f98751e33831d8ef4802",
+          "postId": "https://m.facebook.com/story.php?story_fbid=1251...",
+          "postContent": "BGIS campuses getting disinfected for reopening",
+          "numberOfLikes": "16",
+          "numberOfShares": "2 shares",
+          "timeOfPost": " October 25 at 4:48 PM · Addis Ababa ·",
+          "comments": []
+        },
+        {
+          "_id": "5fd0f98751e33831d8ef4803",
+          "postId": "https://m.facebook.com/story.php?story_fbid=1251...",
+          "postContent": "BGIS campuses getting disinfected for reopening",
+          "numberOfLikes": "16",
+          "numberOfShares": "2 shares",
+          "timeOfPost": " October 25 at 4:48 PM · Addis Ababa ·",
+          "comments": []
+        }
+      ]
+    }
+  ]
+}
