@@ -1,0 +1,13 @@
+
+<div class="absolute inset-0 flex items-center justify-center w-full h-screen bg-gray-500">
+  <form  [formGroup]="searchForm" (ngSubmit)="search()" class="relative flex items-center justify-between w-1/2 h-10 pl-3 pr-2 bg-white border rounded-full">
+    <input formControlName="query" type="search" name="search" id="search" placeholder="Search"
+           class="outline-none appearance-none w-50 focus:outline-none active:outline-none"/>
+    <button type="submit" class="ml-1 outline-none focus:outline-none active:outline-none">
+      <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+           viewBox="0 0 24 24" class="w-6 h-6">
+        <path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+      </svg>
+    </button>
+  </form>
+</div>
