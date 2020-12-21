@@ -3,16 +3,16 @@
   <div class="flex flex-col flex-1">
 
     <header aria-label="page caption"
-      class="flex items-center justify-between flex-none h-16 px-4 bg-gray-100 border-t">
-      <h1 id="page-caption" class="text-lg font-semibold">Dashboard</h1>
+            class="flex items-center justify-between flex-none h-16 px-4 bg-gray-100 border-t">
+      <h1 id="page-caption" class="text-3xl mb-2 font-semibold">Dashboard</h1>
       <ul class="flex items-center px-8">
         <li class="relative">
           <input (click)="openSearch()" title="Search Bar" aria-label="search bar" role="search"
-            class="w-4 py-2 pl-4 pr-8 placeholder-transparent transition-all duration-300 ease-in-out rounded-md cursor-pointer focus:border-black focus:cursor-text focus:w-64 focus:placeholder-gray-500"
-            type="text" placeholder="Search Chi Desk Support">
+                 class="w-4 py-2 pl-4 pr-8 placeholder-transparent transition-all duration-300 ease-in-out rounded-md cursor-pointer focus:border-black focus:cursor-text focus:w-64 focus:placeholder-gray-500"
+                 type="text" placeholder="Search Chi Desk Support">
           <i class="absolute top-0 right-0 flex items-center h-full pr-3 pointer-events-none">
             <svg class="w-4 h-4 mx-auto fill-current" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-              viewBox="0 0 24 24">
+                 viewBox="0 0 24 24">
               <path
                 d="M21.172 24l-7.387-7.387c-1.388.874-3.024 1.387-4.785 1.387-4.971 0-9-4.029-9-9s4.029-9 9-9 9 4.029 9 9c0 1.761-.514 3.398-1.387 4.785l7.387 7.387-2.828 2.828zm-12.172-8c3.859 0 7-3.14 7-7s-3.141-7-7-7-7 3.14-7 7 3.141 7 7 7z">
               </path>
@@ -30,13 +30,13 @@
             Profiles
           </h1>
           <ul>
-            <li *ngFor="let p of groups" (click)="openPosts(p.posts)">
+            <li *ngFor="let p of groups" (click)="openPosts(p)">
               <article tabindex="0"
-                class="flex p-3 mb-2 text-gray-700 bg-white border rounded-md cursor-pointer hover:border-green-500 focus:outline-none focus:border-green-500">
+                       class="flex p-3 mb-2 text-gray-700 bg-white border rounded-md cursor-pointer hover:border-green-500 focus:outline-none focus:border-green-500">
                 <!-- {{ p | json}} -->
                 <span class="flex-none pt-1 pr-2">
                   <img class="w-8 h-8 rounded-md"
-                    src="https://raw.githubusercontent.com/bluebrown/tailwind-zendesk-clone/master/public/assets/avatar.png" />
+                       src="https://raw.githubusercontent.com/bluebrown/tailwind-zendesk-clone/master/public/assets/avatar.png"/>
                 </span>
                 <div class="flex-1">
                   <header class="mb-1">
@@ -58,63 +58,154 @@
       </div>
 
       <div class="col-span-9" *ngIf="posts.length > 0">
-        <section aria-label="main content" class="flex flex-col flex-auto min-h-0 border-l">
-          <nav class="flex p-4 bg-gray-100">
-      
-            <!-- stats nav -->
-            <section aria-labelledby="ticket-statistics-tabs-label" class="pb-2">
-              <label id="ticket-statistics-tabs-label" class="block mb-1 text-sm font-semibold">Statistics</label>
-              <ul class="flex">
-                <li>
-                  <button
-                    class="flex flex-col items-center w-24 p-2 bg-white border border-r-0 focus:outline-none focus:bg-yellow-200 rounded-l-md">
-                    <p class="text-lg font-semibold">{{posts?.length}}</p>
-                    <p class="text-sm text-gray-600 uppercase">
-                      Number Of Posts
-                    </p>
-                  </button>
-                </li>
-              </ul>
-            </section>
-          </nav>
 
-          <table aria-describedby="info-popup" aria-label="open tickets"
-            class="flex flex-col w-full h-full min-h-0 border-t">
-            <thead class="flex flex-col w-full px-4">
-              <tr class="flex border-b">
-                <th class="w-24 px-1 py-3 font-semibold text-left truncate">
-                  #
-                </th>
-                <th class="w-full max-w-xs px-1 py-3 font-semibold text-left truncate xl:max-w-lg">
-                  Post Content
-                </th>
-                <th class="flex-1 px-1 py-3 font-semibold text-left truncate">
-                  Post Id
-                </th>
-                <th class="flex-1 px-1 py-3 font-semibold text-left truncate">
-                  Number Of Likes
-                </th>
-                <th class="flex-1 px-1 py-3 font-semibold text-left truncate">
-                  Number Of Shares
-                </th>
-                <th class="flex-1 px-1 py-3 font-semibold text-left truncate">
-                  Time Of Post
-                </th>
-              </tr>
-            </thead>
-            <tbody class="flex flex-col flex-1 w-full min-h-0 px-4 overflow-hidden">
-              <tr *ngFor="let post of posts; let i=index" role="row" class="flex border-b cursor-pointer hover:bg-blue-100">
-                <td class="w-24 px-1 py-3">
-                  {{i+1}}
-                </td>
-                <td class="w-full max-w-xs px-1 py-3 xl:max-w-lg">
-                  <div class="relative w-full group">
-                    <p class="w-full truncate" title="{{post?.postId}}">
-                      {{post?.postContent}}
-                    </p>
-                    <!-- dropdown -->
-                    <span
-                      class="absolute top-0 z-50 hidden w-screen max-w-lg p-6 mt-10 ml-4 text-gray-900 bg-white border rounded-md shadow-lg group-hover:block">
+        <!--      tabs start-->
+        <div class="flex flex-wrap" id="tabs-id">
+          <div class="w-full">
+            <ul class="flex mb-0 list-none flex-wrap pt-3 pb-4 flex-row">
+              <li class="-mb-px mr-2 last:mr-0 flex-auto text-center">
+                <a class="text-xs font-bold uppercase px-5 py-3 shadow-lg rounded block leading-normal"
+                   [ngClass]="{'text-white  bg-blue-600': activeTab == 'tab-profile', 'text-blue-600 bg-white': activeTab !== 'tab-profile'}"
+                   (click)="changeAtiveTab(this,'tab-profile')">
+                  <i class="fas fa-space-shuttle text-base mr-1"></i>  Profile
+                </a>
+              </li>
+              <li class="-mb-px mr-2 last:mr-0 flex-auto text-center">
+                <a class="text-xs font-bold uppercase px-5 py-3 shadow-lg rounded block leading-normal"
+                   [ngClass]="{'text-white  bg-blue-600': activeTab == 'tab-posts', 'text-blue-600 bg-white': activeTab !== 'tab-posts'}"
+                   (click)="changeAtiveTab(this,'tab-posts')">
+                  <i class="fas fa-cog text-base mr-1"></i>  Posts
+                </a>
+              </li>
+              <li class="-mb-px mr-2 last:mr-0 flex-auto text-center">
+                <a class="text-xs font-bold uppercase px-5 py-3 shadow-lg rounded block leading-normal"
+                   [ngClass]="{'text-white  bg-blue-600': activeTab == 'tab-media', 'text-blue-600 bg-white': activeTab !== 'tab-media'}"
+                   (click)="changeAtiveTab(this,'tab-media')">
+                  <i class="fas fa-briefcase text-base mr-1"></i>  Media
+                </a>
+              </li>
+              <li class="-mb-px mr-2 last:mr-0 flex-auto text-center">
+                <a class="text-xs font-bold uppercase px-5 py-3 shadow-lg rounded block leading-normal"
+                   [ngClass]="{'text-white  bg-blue-600': activeTab == 'tab-interest', 'text-blue-600 bg-white': activeTab !== 'tab-interest'}"
+                   (click)="changeAtiveTab(this,'tab-interest')">
+                  <i class="fas fa-briefcase text-base mr-1"></i>  Interests
+                </a>
+              </li>
+            </ul>
+            <div class="relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-lg rounded">
+              <div class="px-4 py-5 flex-auto">
+                <div class="tab-content tab-space">
+                  <div *ngIf="activeTab == 'tab-profile'" id="tab-profile">
+                    <section aria-label="main content" class="flex flex-col flex-auto gap-y-7 min-h-0 border-l">
+                      <nav class="flex p-4 bg-gray-100 w-full">
+
+                        <!-- stats nav -->
+                        <section aria-labelledby="ticket-statistics-tabs-label" class="pb-2 w-full">
+                          <label id="ticket-statistics-tabs-label" class="block mb-1 text-sm font-semibold">Statistics</label>
+                          <ul class="flex">
+                            <li class="w-full">
+                              <button
+                                class="flex flex-col items-center w-24 p-2 bg-teal-900 border border-r-0 focus:outline-none
+                     focus:bg-yellow-200 rounded-l-md">
+                                <p class="text-3xl mb-2 text-gray-50 font-semibold">{{posts?.length}}</p>
+                                <p class="text-sm text-gray-100 uppercase">
+                                  Number Of Posts
+                                </p>
+                              </button>
+                            </li>
+                            <li class="w-full">
+                              <button
+                                class="flex flex-col items-center w-24 p-2 bg-gradient-to-r from-green-400 to-blue-500 border border-r-0 focus:outline-none
+                     focus:bg-yellow-200 rounded-l-md">
+                                <p class="text-3xl mb-2 text-gray-50 font-semibold">{{locations?.length * 3}}</p>
+                                <p class="text-sm text-gray-100 uppercase">
+                                  Checkin Locations
+                                </p>
+                              </button>
+                            </li>
+                            <li class="w-full">
+                              <button
+                                class="flex flex-col items-center w-24 p-2 bg-indigo-700 border border-r-0 focus:outline-none
+                     focus:bg-yellow-200 rounded-l-md">
+                                <p class="text-3xl mb-2 text-gray-50 font-semibold">{{friends?.length * 11}}</p>
+                                <p class="text-sm text-gray-100 uppercase">
+                                  Total Friends
+                                </p>
+                              </button>
+                            </li>
+                            <li class="w-full">
+                              <button
+                                class="flex flex-col items-center w-24 p-2 bg-gradient-to-r from-purple-400 via-blue-500 to-red-500 border border-r-0 focus:outline-none
+                     focus:bg-yellow-200 rounded-l-md">
+                                <p class="text-3xl mb-2 text-gray-50 font-semibold">{{photos?.length * 7}}</p>
+                                <p class="text-sm text-gray-100 uppercase">
+                                  Uploaded Photos
+                                </p>
+                              </button>
+                            </li>
+                            <li class="w-full">
+                              <button
+                                class="flex flex-col items-center w-24 p-2 bg-blue-500 border border-r-0 focus:outline-none
+                     focus:bg-yellow-200 rounded-l-md">
+                                <p class="text-3xl mb-2 text-gray-50 font-semibold">{{joinedGroups?.length * 7}}</p>
+                                <p class="text-sm text-gray-100 uppercase">
+                                  All Groups
+                                </p>
+                              </button>
+                            </li>
+                          </ul>
+                        </section>
+                      </nav>
+
+                      <app-map class="my-7"></app-map>
+
+                      <app-posts-chart></app-posts-chart>
+
+                      <!-- content footer, currently hidden -->
+                      <footer aria-label="content footer" class="flex hidden p-3 bg-white border-t">
+                        footer
+                      </footer>
+                    </section>
+                  </div>
+                  <div *ngIf="activeTab == 'tab-posts'" id="tab-posts">
+                    <table aria-describedby="info-popup" aria-label="open tickets"
+                           class="flex flex-col w-full h-full min-h-0 border-t">
+                      <thead class="flex flex-col w-full px-4">
+                      <tr class="flex border-b">
+                        <th class="w-24 px-1 py-3 font-semibold text-left truncate">
+                          #
+                        </th>
+                        <th class="w-full max-w-xs px-1 py-3 font-semibold text-left truncate xl:max-w-lg">
+                          Post Content
+                        </th>
+                        <th class="flex-1 px-1 py-3 font-semibold text-left truncate">
+                          Post Id
+                        </th>
+                        <th class="flex-1 px-1 py-3 font-semibold text-left truncate">
+                          Number Of Likes
+                        </th>
+                        <th class="flex-1 px-1 py-3 font-semibold text-left truncate">
+                          Number Of Shares
+                        </th>
+                        <th class="flex-1 px-1 py-3 font-semibold text-left truncate">
+                          Time Of Post
+                        </th>
+                      </tr>
+                      </thead>
+                      <tbody class="flex flex-col flex-1 w-full min-h-0 px-4 overflow-hidden">
+                      <tr *ngFor="let post of posts; let i=index" role="row"
+                          class="flex border-b cursor-pointer hover:bg-blue-100">
+                        <td class="w-24 px-1 py-3">
+                          {{i + 1}}
+                        </td>
+                        <td class="w-full max-w-xs px-1 py-3 xl:max-w-lg">
+                          <div class="relative w-full group">
+                            <p class="w-full truncate" title="{{post?.postId}}">
+                              {{post?.postContent}}
+                            </p>
+                            <!-- dropdown -->
+                            <span
+                              class="absolute top-0 z-50 hidden w-screen max-w-lg p-6 mt-10 ml-4 text-gray-900 bg-white border rounded-md shadow-lg group-hover:block">
                       <article>
                         <header>
                           <div>
@@ -134,30 +225,51 @@
                         </section>
                       </article>
                     </span>
-                    <!-- end dropdown -->
+                            <!-- end dropdown -->
+                          </div>
+                        </td>
+                        <td class="flex-1 px-1 py-3 truncate">
+                          {{post?.postId}}
+                        </td>
+                        <td class="flex-1 px-1 py-3 truncate">
+                          {{post?.numberOfLikes}}
+                        </td>
+                        <td class="flex-1 px-1 py-3 truncate">
+                          {{post?.numberOfShares}}
+                        </td>
+                        <td class="flex-1 px-1 py-3 truncate">
+                          {{post?.timeOfPost}}
+                        </td>
+                      </tr>
+                      </tbody>
+                    </table>
                   </div>
-                </td>
-                <td class="flex-1 px-1 py-3 truncate">
-                 {{post?.postId}}
-                </td>
-                <td class="flex-1 px-1 py-3 truncate">
-                  {{post?.numberOfLikes}}
-                </td>
-                <td class="flex-1 px-1 py-3 truncate">
-                  {{post?.numberOfShares}}
-                </td>
-                <td class="flex-1 px-1 py-3 truncate">
-                  {{post?.timeOfPost}}
-                </td>
-              </tr>
-            </tbody>
-          </table>
+                  <div *ngIf="activeTab == 'tab-media'" id="tab-media">
+                    <gallery
+                      [flexBorderSize]="5"
+                      [flexImageSize]="7"
+                      [maxRowsPerPage]="100">
+                    </gallery>
+                  </div>
+                  <div *ngIf="activeTab == 'tab-interest'" id="tab-interest">
+                    <p>
+                      Efficiently unleash cross-media information without
+                      cross-media value. Quickly maximize timely deliverables for
+                      real-time schemas.
+                      <br />
+                      <br />
+                      Dramatically maintain clicks-and-mortar solutions
+                      without functional solutions.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
 
-          <!-- content footer, currently hidden -->
-          <footer aria-label="content footer" class="flex hidden p-3 bg-white border-t">
-            footer
-          </footer>
-        </section>
+        <!--      tabs end-->
+
       </div>
     </main>
   </div>
