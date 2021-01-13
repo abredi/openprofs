@@ -10,8 +10,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { SearchComponent } from './search/search.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { PostsComponent } from './posts/posts.component';
-import { MapComponent } from './map/map.component';
-import { AgmCoreModule } from '@agm/core';
+import {MapComponent} from './map/map.component'
 import { PostsChartComponent } from './posts-chart/posts-chart.component';
 import {Angular2ImageGalleryModule} from 'angular2-image-gallery';
 

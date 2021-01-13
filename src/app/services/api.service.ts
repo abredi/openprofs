@@ -10,7 +10,7 @@ export class ApiService {
   constructor(private http: HttpClient) {}
 
   search(q: string) {
-    return this.http.get('http://localhost:3000/groups');
+    return this.http.get('http://localhost:3000/groups/' + q);
   }
 }
 
